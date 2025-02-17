@@ -55,30 +55,23 @@ const flight = {
   Proveďte následující:  
     1. Vypište do stránky název startovní a cílové země - já jsem zvolila celou destinaci - jelikož letenka by měla být z místo do místa
     */
-    document.body.innerHTML +=  " <h2> From </h2>" + "<h3>" +  flight.cityFrom + " (" + flight.flyFrom + ")" + ", " + flight.countryFrom.name + " " + flight.countryFrom.code + "</h3>"; // destination + code - city and country - from where
-    document.body.innerHTML += " <h2> To </h2>" + "<h3>" + flight.cityTo + " (" + flight.cityCodeTo +  ")" + ", " + flight.countryTo.name + " " + flight.countryTo.code + "</h3>"; // destination + code - city and country - to where
+    document.body.innerHTML +=  " <h2> From </h2>" + "<h3>" +  flight.cityFrom + " (" + flight.flyFrom + ")" + ", " + flight.countryFrom.name + " " + "</h3>"; // destination + code - city and country - from where
+    document.body.innerHTML += " <h2> To </h2>" + "<h3>" + flight.cityTo + " (" + flight.cityCodeTo +  ")" + ", " + flight.countryTo.name + " " +  "</h3>"; // destination + code - city and country - to where
 
     /* luggages limits and prices
     2. Uložte do separátní proměnné objekt udávající maximální rozměry zavazadel.
      */
 
-   // const handLuggageLimit = 
-    // const holdLuggageLimit =
-
-    document.body.innerHTML +=  "<h3> Bag limits: </h3>"; //title - bag limits
-    document.body.innerHTML +=  "<h4> Hand luggage: </h4>" + "<p> size (cm): " + flight.baglimit.hand_width + " (width) x " + flight.baglimit.hand_height + " (height) x " + flight.baglimit.hand_length + " (length) " +  "</p>"; //title - hand luggage
-   // document.body.innerHTML +=  "<p> size (cm): " + flight.baglimit.hand_width + " (width) x " + flight.baglimit.hand_height + " (height) x " + flight.baglimit.hand_length + " (length) " +  "</p>"; // hand luggage size
-    document.body.innerHTML +=  "<p>" + "weight limit: " + flight.baglimit.hand_weight + " Kg" + "</p>" ;// weight limit - hand luggage
-    document.body.innerHTML +=  "<h4> Hold luggage: </h4>"; // title hold luggage
-    document.body.innerHTML +=  "<p> size (cm): " + flight.baglimit.hold_width  + " (width) x " + flight.baglimit.hold_height + " (height) x " +  flight.baglimit.hand_length  + " (length) " +  "</p>"; // hold lugagge size
-    document.body.innerHTML +=  "<p>" + "weight limit: " + flight.baglimit.hold_weight + " Kg" + "</p>"; //hold luggage weight limit
+    const handLuggageLimit =  "<h4> Hand luggage: </h4>" + "<p> size (cm): " + flight.baglimit.hand_width + " (width) x " + flight.baglimit.hand_height + " (height) x " + flight.baglimit.hand_length + " (length) </p> " + " <p> weight limit: " + flight.baglimit.hand_weight + " Kg" +  "</p>"; // hand luggage size and weight
+    const holdLuggageLimit = "<h4> Hold luggage: </h4>" + "<p> size (cm): " + flight.baglimit.hold_width  + " (width) x " + flight.baglimit.hold_height + " (height) x " +  flight.baglimit.hand_length  + " (length) " +  "</p>" + "<p>" + "weight limit: " + flight.baglimit.hold_weight + " Kg" + "</p>"; // title hold luggage + hold luggage weight limit  
 
     /*  3. Z objektu s rozměry zavazadel vytáhněte maximální povolené rozměry příručního zavazadla a vypište tyto rozměry opět jeden po druhém vypište  do stránky.
     */
-    document.body.innerHTML +=  "<h4> Hand luggage: </h4>" + "<p> size (cm): " + flight.baglimit.hand_width + " (width) x " + flight.baglimit.hand_height + " (height) x " + flight.baglimit.hand_length + " (length) " +  "</p>"; 
+    
+    document.body.innerHTML += handLuggageLimit; 
     
     /*  4. Vypište do stránky, kolik cestující zaplatí za druhé zavazadlo v českých korunách zaokrouhleno nahoru na celé koruny.
         5. Pokud máte chuť, malinko stránku nastylujte, aby se uživatel v informacích vyznal.
     */
     const exchangeRateCzk = Math.round(flight.conversion.EUR * flight.bags_price[2]); // if exchange rate is 36 as conversion ??
-    document.body.innerHTML +=  "<h5> Price for 2nd luggage: " + exchangeRateCzk + " CZK" + "</h5>";  // price 2nd  luggage
+    document.body.innerHTML +=  "<h4> Price for 2nd luggage: " + exchangeRateCzk + " CZK" + "</h4>";  // price 2nd  luggage
